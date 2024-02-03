@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+}
+.game{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background-image: url(../img/background2.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
