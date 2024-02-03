@@ -49,3 +49,27 @@
     text-decoration: none;
     color: lightgoldenrodyellow;
 }
+
+@media(max-width: 480px){
+    .title{
+        font-size: 3em;
+    }
+    .buttons{
+        gap: 1.75em;
+    }
+    .buttonPlay, .buttonHelp{
+        font-size: 1.1em;
+    }
+    .designer{
+        font-size: 0.7em;
+    }
+}
+
+@media(max-width: 768px){
+    .game{
+        justify-content: center;
+    }
+    .content{
+        padding: 0;
+    }
+}
