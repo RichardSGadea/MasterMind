@@ -1,13 +1,64 @@
 *{
     margin: 0;
+    padding: 0;
 }
 .game{
+    
     height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: start;
+    justify-content: center;
     background-image: url(../img/background2.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    font-size: 1em;
+    color: white;
 }
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+    max-width: 85em;
+}
+
+.title{
+    font-size: 3em;
+    color: #d4d4b1;
+    text-align: center;
+}
+
+.text{
+    line-height: 1em;
+}
+.rule{
+    color: #d4d4b1;
+    text-shadow: 1px 1px 2px white;
+}
+.buttonPlay{
+    padding: 0.4em;
+    font-size: 1.9em;
+    border:0.3em solid #d4d4b1;
+    color: #d4d4b1;
+    text-decoration: none;
+}
+.buttonPlay:hover{
+    cursor: pointer;
+    background-color: #d4d4b1;
+    color: black;
+}
+
+
+@media(max-width: 1025px) {
+    .content {
+        padding: 2em;
+        gap: 2em;
+    }
+    .title {
+        font-size: 3em;
+    }
+    .buttonPlay {
+        font-size: 1.2em;
+    }
+}
+
