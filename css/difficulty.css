@@ -5,9 +5,94 @@
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: center;
     background-image: url(../img/background2.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3em;
+}
+
+.nickname{
+    font-size: 2em;
+    color: white;
+}
+.nicknameInput{
+    background-color: transparent;
+    border: none;
+    font-size: 1em;
+    color: #d4d4b1;
+    text-shadow: 1px 1px 2px white;
+}
+
+.nicknameInput:focus{
+    outline: none;
+}
+.difficultyTitle{
+    font-size: 2em;
+    color: white;
+    text-align: center;
+}
+.buttonsDifficulty{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3em;
+}
+
+.buttonBeginner, .buttonIntermediate ,.buttonAdvanced{
+    display: flex;
+    padding: 0.4em;
+    font-size: 1.9em;
+    border:0.3em solid #d4d4b1;
+    color: #d4d4b1;
+    text-decoration: none;
+}
+
+.buttonBeginner:hover, .buttonIntermediate:hover ,.buttonAdvanced:hover{
+    cursor: pointer;
+    background-color: #d4d4b1;
+    color: black;
+}
+
+@media(max-width: 1000px){
+    .content{
+        gap: 2em;
+    }
+    .nickname,.difficultyTitle,.nicknameInput::placeholder{
+        font-size: 1em;
+    }
+    .buttonBeginner, .buttonIntermediate ,.buttonAdvanced{
+        padding: 0.2em;
+        font-size: 0.9em;
+    }
+}
+
+@media(max-width: 768px){
+    .nickname{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+    /*.nickname,.difficultyTitle,.nicknameInput::placeholder{
+        font-size: 1em;
+    }*/
+    .nicknameInput{
+        font-size: 1em;
+        text-align: center;
+
+    }
+    .buttonsDifficulty{
+        justify-content: center;
+        flex-direction: column;
+        gap: 1em;
+    }
+
+}
+
