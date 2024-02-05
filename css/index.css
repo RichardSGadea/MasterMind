@@ -51,7 +51,7 @@
     color: lightgoldenrodyellow;
 }
 
-@media(max-width: 480px){
+@media(max-width: 720px){
     .title{
         font-size: 3em;
     }
@@ -64,12 +64,13 @@
     .designer{
         font-size: 0.7em;
     }
-}
-
-@media(max-width: 768px){
     .game{
         justify-content: center;
     }
+    
+}
+
+@media(max-width: 1000px){
     .content{
         padding: 0;
     }

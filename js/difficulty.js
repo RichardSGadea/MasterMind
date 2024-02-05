@@ -83,7 +83,7 @@ playBtn.addEventListener("click", (event)=>{
             boxesWait = 4;
             break;
     }
-    const colorsAsigned = allColors(arrayBoxColors, boxesWait);
+    const colorsAsigned = allColors(arrayBoxes, boxesWait);
     if(nick){
         alert("Choose a nickname please")
         return;
