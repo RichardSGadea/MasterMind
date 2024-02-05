@@ -124,7 +124,7 @@ input[type="color"]:focus {
     color: #d4d4b1;
     text-decoration: none;
 }
-.buttonPlay:hover{
+#buttonPlay:hover{
     cursor: pointer;
     background-color: #d4d4b1;
     color: black;
