@@ -63,7 +63,7 @@
 #buttonsCheckDeleted{
     display: flex; 
     gap: 0.2em;
-    cursor: pointer;
+    
 }
 
 .buttonCheck{
@@ -71,6 +71,7 @@
     font-size: 0.3em;
     border:0.3em solid #d4d4b1;
     color: black;
+    cursor:crosshair;
     
 }
 .buttonDeleted{
@@ -78,10 +79,6 @@
     font-size: 0.3em;
     border:0.3em solid #d4d4b1;
     color: black;
-}
-
-.buttonDeleted:hover{
-    background-color: #d4d4b1;
-    color: red;
     cursor: pointer;
 }
+

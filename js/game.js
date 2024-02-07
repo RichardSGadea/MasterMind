@@ -1,17 +1,15 @@
 let nickName = localStorage.getItem("nickName");
 let localColor = localStorage.getItem("colorsPlay");
 let attempts = localStorage.getItem("tried");
-/*
-console.log(nickName);
-console.log(localColor);
-console.log(attempts);
-*/
-//console.log(typeof localColor); //string
+
+
 let boxColorsSelected = localColor.split(',');
-//console.log(typeof parseInt(attempts)); //number
-console.log(boxColorsSelected); //[color1,color2,color3,color4,.....] 
+
 let colorsSelected = document.getElementById("colors");
 let colorsAttempts = document.getElementById("masterMind");
+let deletedBtn = document.getElementById("buttonDeleted");
+let checkBtn = document.getElementById("buttonCheck")
+
 
 let combinationToWin = [];
 for(let i = 0; i< boxColorsSelected.length;i++){
@@ -48,22 +46,31 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
 })
 
-let actualAttemptId = 0;
 let actualNumColor = 0;
 let buttonsColorSelected = document.querySelectorAll("buttonColorSelected")
 console.log(buttonsColorSelected);
 colorsSelected.addEventListener("click",(e)=>{
-    console.log(e.target.style.backgroundColor); //rgb(193, 21, 21)
-   //let actualAttempt = document.getElementById(`attempt${actualAttemptId}`);
-    let actualSelectedColor = document.getElementById(`colorBoxes${actualNumColor}`)
+    let actualSelectedColor = document.getElementById(`colorBoxes${actualNumColor}`);
     if((actualNumColor < boxColorsSelected.length)&& (actualSelectedColor.style.backgroundColor === "")){
             actualSelectedColor.style.backgroundColor = e.target.style.backgroundColor;
             actualNumColor++;
         if(actualNumColor === boxColorsSelected.length){
-            console.log("yaaaa no");
+            checkBtn.removeAttribute("disabled")
         }
     }
 })
+
+deletedBtn.addEventListener("click",()=>{
+    let actualSelectedColor = document.getElementById(`colorBoxes${actualNumColor-1}`);
+    if(actualNumColor>0){
+        actualSelectedColor.style.backgroundColor = "";
+        actualNumColor--;
+        if(actualNumColor != boxColorsSelected.length){
+            checkBtn.setAttribute("disabled","true");
+        }
+    }
+});
+
 
 
 
