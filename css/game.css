@@ -53,26 +53,35 @@
 #colors{
     display: flex;
     justify-content: space-between;
-    gap: 0.5em;
+    
 }
 .buttonColorSelected{
     width: 1em;
     height: 1em;
-    cursor: pointer;
+    border: 0.2em solid lightskyblue;
 }
 #buttonsCheckDeleted{
     display: flex; 
     gap: 0.2em;
+    cursor: pointer;
 }
 
-.buttonFunction{
+.buttonCheck{
     padding: 0.4em;
     font-size: 0.3em;
     border:0.3em solid #d4d4b1;
-    color: #d4d4b1;
-}
-.buttonFunction:hover{
-    cursor: pointer;
-    background-color: #d4d4b1;
     color: black;
+    
+}
+.buttonDeleted{
+    padding: 0.4em;
+    font-size: 0.3em;
+    border:0.3em solid #d4d4b1;
+    color: black;
+}
+
+.buttonDeleted:hover{
+    background-color: #d4d4b1;
+    color: red;
+    cursor: pointer;
 }
