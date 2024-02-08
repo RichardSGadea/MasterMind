@@ -23,7 +23,7 @@ function createBoxSelection(boxes){
     }
 }
 
-function keepColorLocalStorage(colors){
+function keepColorSessionStorage(colors){
     for(let i = 0; i < colors;i++){
         const box = document.getElementById(`box${i}`);
         const colorSelected = document.getElementById(`colorSelected${i}`);
@@ -46,19 +46,19 @@ levels.addEventListener("click", (event)=>{
     boxColors.style.display="flex";
     switch(event.target.outerText){
         case "Beginner":
-            localStorage.setItem("tried",10);
+            sessionStorage.setItem("tried",10);
             createBoxSelection(4);
-            keepColorLocalStorage(4);
+            keepColorSessionStorage(4);
             break;
         case "Intermediate":
-            localStorage.setItem("tried",8);
+            sessionStorage.setItem("tried",8);
             createBoxSelection(5);
-            keepColorLocalStorage(5);
+            keepColorSessionStorage(5);
             break;
         case "Advanced":
-            localStorage.setItem("tried",6);
+            sessionStorage.setItem("tried",6);
             createBoxSelection(6);
-            keepColorLocalStorage(6);
+            keepColorSessionStorage(6);
             break;
         default:
             break;
@@ -69,7 +69,7 @@ levels.addEventListener("click", (event)=>{
 playBtn.addEventListener("click", (event)=>{
     const nick = nickname.value == null || nickname.value == "";
     let boxesWait = 0;
-    switch(localStorage.getItem("tried")){
+    switch(sessionStorage.getItem("tried")){
         case "10":
             boxesWait = 4;
             break;
@@ -91,8 +91,8 @@ playBtn.addEventListener("click", (event)=>{
         alert("All boxes must contain color, white is not allowed")
         return
     }else{
-        localStorage.setItem("nickName",nickname.value);
-        localStorage.setItem("colorsPlay",arrayBoxes);
+        sessionStorage.setItem("nickName",nickname.value);
+        sessionStorage.setItem("colorsPlay",arrayBoxes);
         window.location.href="../pages/game.html"
     }
 })
