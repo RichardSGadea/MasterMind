@@ -15,8 +15,8 @@ function rgbToHex(rgb) {
     let rgbValues = rgb.match(/\d+/g);
     let colorsHex = "#";
     for (let i = 0; i < 3; i++) {
-      let valueHex = parseInt(rgbValues[i]).toString(16);
-      colorsHex += valueHex.length === 1 ? "0" + valueHex : valueHex;
+        let valueHex = parseInt(rgbValues[i]).toString(16);
+        colorsHex += valueHex.length === 1 ? "0" + valueHex : valueHex;
     }
     return colorsHex;
 }
@@ -24,104 +24,114 @@ function rgbToHex(rgb) {
 //Combinación aleatoria desde la gama de colores elegida
 let combinationToWin = [];
 
-let playerCombination=[];
-for(let i = 0; i< boxColorsSelected.length;i++){
-    combinationToWin.push(boxColorsSelected[Math.floor(Math.random()*boxColorsSelected.length)]);
+let playerCombination = [];
+for (let i = 0; i < boxColorsSelected.length; i++) {
+    combinationToWin.push(boxColorsSelected[Math.floor(Math.random() * boxColorsSelected.length)]);
 };
 
-document.addEventListener("DOMContentLoaded", ()=>{
-    for(let i = 0;i<boxColorsSelected.length;i++){
+document.addEventListener("DOMContentLoaded", () => {
+    for (let i = 0; i < boxColorsSelected.length; i++) {
         let boxColor = document.createElement("div");
-        boxColor.className="buttonColorSelected";
-        boxColor.style.backgroundColor=`${boxColorsSelected[i]}`;
+        boxColor.className = "buttonColorSelected";
+        boxColor.style.backgroundColor = `${boxColorsSelected[i]}`;
         colorsSelected.appendChild(boxColor);
     }
-    
-    for(let i = 0; i<parseInt(attempts);i++){
+
+    for (let i = 0; i < parseInt(attempts); i++) {
         let boxAttempt = document.createElement("div");
         boxAttempt.id = `attempt${i}`;
         boxAttempt.className = "boxesAttempts";
         colorsAttempts.appendChild(boxAttempt);
-        for(let i = 0;i<boxColorsSelected.length;i++){
+        for (let i = 0; i < boxColorsSelected.length; i++) {
             let boxColorAttempts = document.createElement("div");
-            boxColorAttempts.id=`colorBoxes${i}`;
+            boxColorAttempts.id = `colorBoxes${i}`;
             boxColorAttempts.className = "ColorsAttemptBox";
             boxAttempt.appendChild(boxColorAttempts);
         }
-        for(let i = 0;i<boxColorsSelected.length;i++){
+        for (let i = 0; i < boxColorsSelected.length; i++) {
             let boxColorComprobation = document.createElement("div");
-            boxColorComprobation.id=`colorComprobation${i}`;
+            boxColorComprobation.id = `colorComprobation${i}`;
             boxColorComprobation.className = "ColorsAttemptComprobation";
             boxAttempt.appendChild(boxColorComprobation);
         }
     }
 })
-let actualAttemptId= 0;
+let actualAttemptId = 0;
 let actualNumColor = 0;
 
-colorsSelected.addEventListener("click",(e)=>{
+colorsSelected.addEventListener("click", (e) => {
     let actualAttempt = document.getElementById(`attempt${actualAttemptId}`);
     let actualSelectedColor = actualAttempt.querySelector(`#colorBoxes${actualNumColor}`);
-    if((actualNumColor < boxColorsSelected.length)&& (actualSelectedColor.style.backgroundColor === "")){
-            actualSelectedColor.style.backgroundColor = e.target.style.backgroundColor;
-            actualNumColor++;
-        if(actualNumColor === boxColorsSelected.length){
+    if ((actualNumColor < boxColorsSelected.length) && (actualSelectedColor.style.backgroundColor === "")) {
+        actualSelectedColor.style.backgroundColor = e.target.style.backgroundColor;
+        actualNumColor++;
+        if (actualNumColor === boxColorsSelected.length) {
             checkBtn.removeAttribute("disabled")
         }
     }
 })
 
-deletedBtn.addEventListener("click",()=>{
+deletedBtn.addEventListener("click", () => {
     let actualAttempt = document.getElementById(`attempt${actualAttemptId}`);
-    let actualSelectedColor = actualAttempt.querySelector(`#colorBoxes${actualNumColor-1}`);
-    if(actualNumColor>0){
+    let actualSelectedColor = actualAttempt.querySelector(`#colorBoxes${actualNumColor - 1}`);
+    if (actualNumColor > 0) {
         actualSelectedColor.style.backgroundColor = "";
         actualNumColor--;
-        if(actualNumColor != boxColorsSelected.length){
-            checkBtn.setAttribute("disabled","true");
+        if (actualNumColor != boxColorsSelected.length) {
+            checkBtn.setAttribute("disabled", "true");
         }
     }
 });
-const combinationsEquals = (user,random) =>{
+
+const combinationsEquals = (user, random) => {
     for (let i = 0; i < user.length; i++) {
         if (user[i] !== random[i]) {
-            playerCombination = []
             return false;
         }
     }
     return true;
 }
 
-checkBtn.addEventListener("click", ()=>{
+checkBtn.addEventListener("click", () => {
     let actualAttempt = document.getElementById(`attempt${actualAttemptId}`);
-    for(let i = 0; i< boxColorsSelected.length ; i++){
+
+    for (let i = 0; i < boxColorsSelected.length; i++) {
         let actualSelectedColor = actualAttempt.querySelector(`#colorBoxes${i}`);
         playerCombination.push(rgbToHex(actualSelectedColor.style.backgroundColor));
     }
     console.log(playerCombination);
     console.log(combinationToWin);
-    if(combinationsEquals(playerCombination,combinationToWin)){
+    if (combinationsEquals(playerCombination, combinationToWin)) {
         alert("acierto")
-    }else if (actualAttemptId+1===parseInt(attempts)){
+    } else if (actualAttemptId + 1 === parseInt(attempts)) {
         alert("fallo")
-    }else{
-        let actualSelectedColor;
+    } else {
         let comprobationActualColor;
-        for(let i = 0;i<boxColorsSelected.length;i++){
-            actualSelectedColor = actualAttempt.querySelector(`#colorBoxes${i}`);
+        for (let i = 0; i < playerCombination.length; i++) {
             comprobationActualColor = actualAttempt.querySelector(`#colorComprobation${i}`);
-            
-            if(rgbToHex(actualSelectedColor.style.backgroundColor)===combinationToWin[i]){
+            if (playerCombination[i] === combinationToWin[i]) {
                 comprobationActualColor.style.backgroundColor = "#A200FF";
-            }else if(combinationToWin.includes(rgbToHex(actualSelectedColor.style.backgroundColor))){
-                comprobationActualColor.style.backgroundColor = "#FFFFFF";
+            } else {
+                for (let j = 0; j < combinationToWin.length; j++) {
+                    if (j != i) {
+                        if (playerCombination[j] === combinationToWin[i]) {
+                            comprobationActualColor = actualAttempt.querySelector(`#colorComprobation${j}`);
+                            if (comprobationActualColor.style.backgroundColor !== "#A200FF") {
+                                comprobationActualColor = actualAttempt.querySelector(`#colorComprobation${j}`);
+                                comprobationActualColor.style.backgroundColor = "#FFFFFF"
+                                break;
+                            }
+                        }
+                    }
+                }
             }
-            
         }
     }
-    actualNumColor=0;
+    actualNumColor = 0;
     actualAttemptId++;
-    checkBtn.setAttribute("disabled","true");
+    playerCombination = []
+    checkBtn.setAttribute("disabled", "true");
+
 })
 
 
