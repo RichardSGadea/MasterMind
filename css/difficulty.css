@@ -25,10 +25,9 @@
     color: white;
 }
 .nicknameInput{
-    background-color: transparent;
-    border: none;
+    background-color: rgba(255, 255, 255,0.9);
     font-size: 1em;
-    color: #d4d4b1;
+    color: black;
     text-shadow: 1px 1px 2px white;
 }
 
