@@ -104,10 +104,9 @@ checkBtn.addEventListener("click", () => {
     console.log(playerCombination);
     console.log(combinationToWin);
     if (combinationsEquals(playerCombination, combinationToWin)) {
-        //alert("acierto")
-        window.location.href="../pages/win.html"
+        window.location.href="../pages/win.html";
     } else if (actualAttemptId + 1 === parseInt(attempts)) {
-        alert("fallo")
+        window.location.href="../pages/lose.html";
     } else {
         let comprobationActualColor;
         for (let i = 0; i < playerCombination.length; i++) {
