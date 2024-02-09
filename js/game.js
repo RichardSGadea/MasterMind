@@ -1,3 +1,5 @@
+
+
 let nickName = sessionStorage.getItem("nickName");
 let sessionColor = sessionStorage.getItem("colorsPlay");
 let attempts = sessionStorage.getItem("tried");
@@ -102,7 +104,8 @@ checkBtn.addEventListener("click", () => {
     console.log(playerCombination);
     console.log(combinationToWin);
     if (combinationsEquals(playerCombination, combinationToWin)) {
-        alert("acierto")
+        //alert("acierto")
+        window.location.href="../pages/win.html"
     } else if (actualAttemptId + 1 === parseInt(attempts)) {
         alert("fallo")
     } else {
