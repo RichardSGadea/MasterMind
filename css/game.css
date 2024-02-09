@@ -59,26 +59,44 @@
     width: 1em;
     height: 1em;
     border: 0.2em solid lightskyblue;
+    font-size: 3em;
 }
 #buttonsCheckDeleted{
     display: flex; 
     gap: 0.2em;
-    
 }
 
-.buttonCheck{
+#buttonCheck{
     padding: 0.4em;
-    font-size: 0.3em;
+    font-size: 1.9em;
     border:0.3em solid #d4d4b1;
-    color: black;
-    cursor:crosshair;
+    color: #d4d4b1;
     
 }
-.buttonDeleted{
+#buttonDeleted{
     padding: 0.4em;
-    font-size: 0.3em;
+    font-size: 1.9em;
     border:0.3em solid #d4d4b1;
-    color: black;
+    color: #d4d4b1;
+}
+
+#buttonDeleted:hover{
     cursor: pointer;
+    background-color: #d4d4b1;
+    color: black;
 }
 
+#buttonCheck:enabled:hover{
+    cursor: pointer;
+    background-color: #d4d4b1;
+    color: black;
+}
+
+@media(max-width: 890px){
+    .buttonColorSelected{
+        font-size: 1.5em;
+    }
+    #buttonCheck, #buttonDeleted{
+        font-size: 1em;
+    }
+}

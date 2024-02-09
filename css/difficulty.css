@@ -119,7 +119,7 @@ input[type="color"]:focus {
 
 #buttonPlay{
     padding: 0.4em;
-    font-size: 0.9em;
+    font-size: 3em;
     border:0.3em solid #d4d4b1;
     color: #d4d4b1;
     text-decoration: none;
@@ -142,6 +142,9 @@ input[type="color"]:focus {
         padding: 0.2em;
         font-size: 0.9em;
     }
+    #buttonPlay{
+        font-size: 1.5em;
+    }
 }
 
 @media(max-width: 768px){
@@ -158,8 +161,6 @@ input[type="color"]:focus {
         font-size: 0.33em;
         gap: 0.2em;
     }
-    #buttonPlay{
-        font-size: 1em;
-    }
+    
 }
 

@@ -30,6 +30,7 @@
 
 .text{
     line-height: 1em;
+    font-size: 3em;
 }
 .rule{
     color: #d4d4b1;
@@ -49,7 +50,7 @@
 }
 
 
-@media(max-width: 1025px) {
+@media(max-width: 725px) {
     .content {
         padding: 2em;
         gap: 2em;
@@ -59,6 +60,9 @@
     }
     .buttonPlay {
         font-size: 1.2em;
+    }
+    .text{
+        font-size: 1.5em;
     }
 }
 
