@@ -3,7 +3,7 @@ const levels = document.getElementById("levels");
 const nickname = document.getElementById("nicknameInput");
 
 let arrayBoxes = [];
-
+//Función con la que se crearán los div de almacenamiento del color escogido con su input de elección (dependiendo de la cantidad de colores a elegir según dificultad de juego)
 function createBoxSelection(boxes){
     let containerColors = document.getElementById("containerColors");
     containerColors.textContent = null;
@@ -22,7 +22,7 @@ function createBoxSelection(boxes){
         containerColors.appendChild(boxSelection);
     }
 }
-
+//Función para guardar la elección de colores escogida. Y servirá para controlar el desarrollo adecuado del juego siguiendo las normas de colores del mismo.
 function keepColorSessionStorage(colors){
     for(let i = 0; i < colors;i++){
         const box = document.getElementById(`box${i}`);
@@ -41,6 +41,8 @@ function keepColorSessionStorage(colors){
         })
     }
 }
+//Al dar click en cualquier nivel se crean y guardan los diferentes inputs y colores
+//Con sessionStorage guardaremos el dato de intentos para podes llevarlo por los siguientes sitios de la web
 levels.addEventListener("click", (event)=>{
     const boxColors = document.getElementById("boxCol");
     boxColors.style.display="flex";
@@ -65,8 +67,8 @@ levels.addEventListener("click", (event)=>{
     }
 });
 
-
-playBtn.addEventListener("click", (event)=>{
+//Con el botón play comprobaremos datos para poder seguit avanzando al tablero de juego guardando en sessionStorage el nick y el array de colores escogido
+playBtn.addEventListener("click", ()=>{
     const nick = nickname.value == null || nickname.value == "";
     let boxesWait = 0;
     switch(sessionStorage.getItem("tried")){
@@ -96,7 +98,7 @@ playBtn.addEventListener("click", (event)=>{
         window.location.href="../pages/game.html"
     }
 })
-
+//función para controlar que funciona el guardado de colores correctamente
 function allColors(arrayBoxColors, boxesWait){
     let errors = 0;
     for(let i = 0; i < arrayBoxColors.length;i++){

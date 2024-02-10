@@ -1,10 +1,10 @@
 
-
+//variables recogiendo datos desde el SessionStorage
 let nickName = sessionStorage.getItem("nickName");
 let sessionColor = sessionStorage.getItem("colorsPlay");
 let attempts = sessionStorage.getItem("tried");
 
-
+//Transforma el string de los colores elegidos a un array
 let boxColorsSelected = sessionColor.split(',');
 
 let colorsSelected = document.getElementById("colors");
@@ -31,6 +31,7 @@ for (let i = 0; i < boxColorsSelected.length; i++) {
     combinationToWin.push(boxColorsSelected[Math.floor(Math.random() * boxColorsSelected.length)]);
 };
 
+//Nada más cargar la página de juego dibujar los div de añadir el usuario los colores escogidos previamente y el resultado del check de comprobación/comparación. Y un div donde aparecerán los colores escogidos anteriormente
 document.addEventListener("DOMContentLoaded", () => {
     for (let i = 0; i < boxColorsSelected.length; i++) {
         let boxColor = document.createElement("div");
@@ -60,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 let actualAttemptId = 0;
 let actualNumColor = 0;
-
+//Función para la hora de hacer click en uno de los colores vaya pintando sobre la linea de intento de parte del usuario
 colorsSelected.addEventListener("click", (e) => {
     let actualAttempt = document.getElementById(`attempt${actualAttemptId}`);
     let actualSelectedColor = actualAttempt.querySelector(`#colorBoxes${actualNumColor}`);
@@ -72,7 +73,7 @@ colorsSelected.addEventListener("click", (e) => {
         }
     }
 })
-
+//Función para la hora de hacer click borre el valor último añadido y así uno tras otro de la misma línea de intento
 deletedBtn.addEventListener("click", () => {
     let actualAttempt = document.getElementById(`attempt${actualAttemptId}`);
     let actualSelectedColor = actualAttempt.querySelector(`#colorBoxes${actualNumColor - 1}`);
@@ -84,7 +85,7 @@ deletedBtn.addEventListener("click", () => {
         }
     }
 });
-
+//Funcón para compara los dos arrays de colores (user y random)
 const combinationsEquals = (user, random) => {
     for (let i = 0; i < user.length; i++) {
         if (user[i] !== random[i]) {
@@ -93,7 +94,7 @@ const combinationsEquals = (user, random) => {
     }
     return true;
 }
-
+//Función para la comprobación de la igualdad de los arrays 
 checkBtn.addEventListener("click", () => {
     let actualAttempt = document.getElementById(`attempt${actualAttemptId}`);
 
