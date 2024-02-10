@@ -102,12 +102,12 @@ checkBtn.addEventListener("click", () => {
         let actualSelectedColor = actualAttempt.querySelector(`#colorBoxes${i}`);
         playerCombination.push(rgbToHex(actualSelectedColor.style.backgroundColor));
     }
-    console.log(playerCombination);
-    console.log(combinationToWin);
+    //console.log(playerCombination);
+    //console.log(combinationToWin);
     if (combinationsEquals(playerCombination, combinationToWin)) {
-        window.location.href="../pages/win.html";
+        window.location.href = "../pages/win.html";
     } else if (actualAttemptId + 1 === parseInt(attempts)) {
-        window.location.href="../pages/lose.html";
+        window.location.href = "../pages/lose.html";
     } else {
         let comprobationActualColor;
         for (let i = 0; i < playerCombination.length; i++) {
@@ -115,12 +115,12 @@ checkBtn.addEventListener("click", () => {
             if (playerCombination[i] === combinationToWin[i]) {
                 comprobationActualColor.style.backgroundColor = "#A200FF";
             } else {
+
                 for (let j = 0; j < combinationToWin.length; j++) {
                     if (j != i) {
                         if (playerCombination[j] === combinationToWin[i]) {
                             comprobationActualColor = actualAttempt.querySelector(`#colorComprobation${j}`);
-                            if (comprobationActualColor.style.backgroundColor !== "#A200FF") {
-                                comprobationActualColor = actualAttempt.querySelector(`#colorComprobation${j}`);
+                            if (comprobationActualColor.style.backgroundColor0 === "#A200FF" || comprobationActualColor.style.backgroundColor === "") {
                                 comprobationActualColor.style.backgroundColor = "#FFFFFF"
                                 break;
                             }
