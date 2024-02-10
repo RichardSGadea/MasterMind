@@ -1,5 +1,7 @@
 # Mastermind Web 🧠
 
+![capture](./img/Recording.gif)
+
  My adaptation of the classic game **[Mastermind](<https://en.wikipedia.org/wiki/Mastermind_(board_game)>)**
  3rd project for the Geekshub Academy Full Stack Delevoper Bootcamp Online.
 
